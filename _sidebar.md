@@ -1,0 +1,6 @@
+- Gitlab-CI实践
+    - [GitlabCI_CD基础概念](GitLabCI_CD_Basic_Concepts/README.md)
+      - [为什么要做CICD](/GitLabCI_CD_Basic_Concepts/01-Why-Do-CICD/01-为什么要做CICD.md)
+      - [GitLab CICD功能简介](/GitLabCI_CD_Basic_Concepts/02-GitLab-CICD-Introduction/02-GitLab-CICD功能简介.md)
+      - [GitLabCI vs JenkinsCI](/GitLabCI_CD_Basic_Concepts/03-GitLabCI-VS-JenkinsCI/03-GitLabCI-VS-JenkinsCI.md)
+      - [安装部署GitLabCI](/GitLabCI_CD_Basic_Concepts/04-Install-GitLabCI/安装部署GitLabCI.md)
