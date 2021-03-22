@@ -1,8 +1,8 @@
-# GitLab CI/CD
+# GitLab 基础概念
 
 
 
-### 课程内容
+### 目录
 
 - 为什么要做CI/CD？
 - GitLab CI/CD基本功能简介
