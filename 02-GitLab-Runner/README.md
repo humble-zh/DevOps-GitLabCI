@@ -2,7 +2,7 @@
 
 
 
-### 课程内容
+### 目录
 
 - GitLab Runner简介
 - GitLab Runner安装
