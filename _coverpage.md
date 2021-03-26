@@ -5,7 +5,7 @@
 - GitLabCI实践文档
 
 [GitHub](https://github.com/like-ycy/DevOps-GitLabCI)
-[Get Started](#GitLabCI)
+[Get Started](#DevOps-GitLabCI)
 
 <!-- 自定义背景图片
 
