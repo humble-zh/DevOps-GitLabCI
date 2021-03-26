@@ -1,7 +1,7 @@
 
 # Gitlab CI实践
 
-本片所有文章转载于：[DevOps运维笔记](http://www.idevops.site/)
+本项目所有文章转载于：[DevOps运维笔记](http://www.idevops.site/)
 
 
 ## 课程简介
