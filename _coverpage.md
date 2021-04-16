@@ -5,4 +5,4 @@
 - GitLabCI实践文档
 
 [GitHub](https://github.com/like-ycy/DevOps-GitLabCI)
-[Get Started](#DevOps-GitlabCI)
+[Get Started](#DevOps-GitLabCI)
