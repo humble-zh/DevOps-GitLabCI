@@ -1,4 +1,4 @@
-## DevOps-GitlabCI
+## DevOps-GitLabCI
 ## Gitlab CI实践
 
 本项目所有文章转载于：[DevOps运维笔记](http://www.idevops.site/)
