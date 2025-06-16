@@ -67,19 +67,15 @@ job1:
 
 ### when
 
-`on_success`前面阶段中的所有作业都成功（或由于标记为`allow_failure`而被视为成功）时才执行作业。 这是默认值。
-
-`on_failure`当前面阶段出现失败则执行。
-
-`always` -执行作业，而不管先前阶段的作业状态如何，放到最后执行。总是执行。
-
-
-
-
+| 取值         | 意义                                                                                                                              |
+|--------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| `on_success` | 前面阶段中的所有作业都成功（或由于标记为`allow_failure`而被视为成功）时才执行作业。 这是默认值。                                  |
+| `on_failure` | 当前面阶段出现失败则执行。                                                                                                        |
+| `always`     | 不管先前阶段的作业状态如何，总是执行。                                                                                            |
+| `manual`     | 手动执行作业,不会自动执行，需要由用户显式启动. 手动操作的示例用法是部署到生产环境. 可以从管道，作业，环境和部署视图开始手动操作。 |
+| `delayed`    | 延迟一定时间(比如:`start_in: '5'`)后执行作业（在GitLab 11.14中已添加）。                                                          |
 
 #### manual 手动
-
-`manual` -手动执行作业,不会自动执行，需要由用户显式启动. 手动操作的示例用法是部署到生产环境. 可以从管道，作业，环境和部署视图开始手动操作。
 
 此时在deploy阶段添加manual，则流水线运行到deploy阶段为锁定状态，需要手动点击按钮才能运行deploy阶段。
 
@@ -88,8 +84,6 @@ job1:
 
 
 #### delayed 延迟
-
-`delayed` 延迟一定时间后执行作业（在GitLab 11.14中已添加）。 
 
 有效值`'5',10 seconds,30 minutes, 1 day, 1 week` 。
 
@@ -107,7 +101,7 @@ before_script:
 
 variables:
   DOMAIN: example.com
-  
+
 stages:
   - build
   - test
@@ -132,7 +126,7 @@ unittest:
   when: delayed
   start_in: '30'
   allow_failure: true
-  
+
 
 deploy:
   stage: deploy
@@ -140,18 +134,18 @@ deploy:
     - echo "hello deploy"
     - sleep 2;
   when: manual
-  
+
 codescan:
   stage: codescan
   script:
     - echo "codescan"
     - sleep 5;
   when: on_success
- 
+
 after_script:
   - echo "after-script"
   - ech
-  
+
 
 ```
 
@@ -323,7 +317,7 @@ before_script:
 
 variables:
   DOMAIN: example.com
-  
+
 stages:
   - build
   - test
@@ -353,8 +347,8 @@ unittest:
     when:
       - script_failure
   timeout: 1 hours 10 minutes
-  
-  
+
+
 
 deploy:
   stage: deploy
@@ -362,7 +356,7 @@ deploy:
     - echo "hello deploy"
     - sleep 2;
   when: manual
-  
+
 codescan:
   stage: codescan
   script:
@@ -370,7 +364,7 @@ codescan:
     - sleep 5;
   when: on_success
   parallel: 5
- 
+
 after_script:
   - echo "after-script"
   - ech
@@ -487,7 +481,7 @@ codescan:
   rules:
     - exists:
       - Jenkinsfile
-      when: manual 
+      when: manual
     - changes:
       - Jenkinsfile
       when: on_success
@@ -500,7 +494,7 @@ codescan:
 
 #### rules:allow_failure
 
-使用[`allow_failure: true`](http://s0docs0gitlab0com.icopy.site/12.9/ee/ci/yaml/README.html#allow_failure) `rules:`在不停止管道本身的情况下允许作业失败或手动作业等待操作. 
+使用[`allow_failure: true`](http://s0docs0gitlab0com.icopy.site/12.9/ee/ci/yaml/README.html#allow_failure) `rules:`在不停止管道本身的情况下允许作业失败或手动作业等待操作.
 
 ```
 job:
@@ -547,13 +541,13 @@ before_script:
 
 variables:
   DOMAIN: example.com
-  
+
 workflow:
   rules:
     - if: '$DOMAIN == "example.com"'
       when: always
     - when: never
-    
+
 stages:
   - build
   - test
@@ -573,7 +567,7 @@ build:
   rules:
     - exists:
       - Dockerfile
-      when: on_success 
+      when: on_success
       allow_failure: true
 
     - changes:
@@ -593,8 +587,8 @@ unittest:
     when:
       - script_failure
   timeout: 1 hours 10 minutes
-  
-  
+
+
 
 deploy:
   stage: deploy
@@ -608,7 +602,7 @@ deploy:
       when: delayed
       start_in: '5'
     - when: on_failure
-  
+
 codescan:
   stage: codescan
   script:
@@ -616,9 +610,8 @@ codescan:
     - sleep 5;
   when: on_success
   parallel: 5
- 
+
 after_script:
   - echo "after-script"
   - ech
 ```
-
